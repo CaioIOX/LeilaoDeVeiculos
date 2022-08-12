@@ -1,8 +1,8 @@
 open class Marca() {
 
-    private var name = ""
-    private var paisDeOrigem = ""
-    private var paisDeProducao = ""
+    private lateinit var name: String
+    private lateinit var paisDeOrigem: String
+    private lateinit var paisDeProducao: String
     var marca = arrayListOf<Marca>()
 
     fun Marca(name: String, paisDeOrigem: String, paisDeProducao: String) {

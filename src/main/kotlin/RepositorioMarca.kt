@@ -16,7 +16,6 @@ class RepositorioMarca: Marca() {
             println("Marca não encontrada!")
         }
     }
-
     fun editarMarca(name: String) {
         for (indice in marca.indices) {
             try {
@@ -25,8 +24,7 @@ class RepositorioMarca: Marca() {
                             "\n1 - Nome da Marca"   +
                             "\n2 - País de Origem"  +
                             "\n3 - País de produção")
-                    val respostaAlterar = readLine()?.toInt() ?: 0
-                    when(respostaAlterar) {
+                    when(readLine()?.toInt() ?: 0) {
                         1 -> {  println("Digite um novo nome para a marca: ")
                                 val respostaNome = readLine()?:"Marca genérica"
                                 marca[indice].setName(respostaNome)
@@ -47,7 +45,6 @@ class RepositorioMarca: Marca() {
             }
         }
     }
-
     fun removerMarca(name: String) {
         for (indice in marca.indices) {
             if (compareWithInput(name, indice)) {
@@ -55,8 +52,5 @@ class RepositorioMarca: Marca() {
             }
         }
     }
-
-    fun isEmpty():Boolean {
-        return marca.size == 0
-    }
+    fun isEmpty():Boolean {return marca.isEmpty()}
 }
