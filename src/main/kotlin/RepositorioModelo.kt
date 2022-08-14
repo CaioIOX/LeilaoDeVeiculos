@@ -41,4 +41,15 @@ class RepositorioModelo : Modelo() {
             }
         }
     }
+    fun removerModelo(name: String) {
+        for (indice in modelo.indices) {
+            if (compareWithInput(name, indice)) modelo.remove(getModelo(indice))
+        }
+    }
+    fun imprimirModelo() {
+        for (indice in modelo.indices) {
+            println("# ${indice+1} - ${nomeDoModelo(indice)}")
+        }
+    }
+    fun isEmpty(): Boolean {return modelo.isEmpty()}
 }
