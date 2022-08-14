@@ -1,2 +1,2 @@
-class RepositorioVeiculo {
+class RepositorioVeiculo: Veiculo() {
 }
