@@ -2,6 +2,7 @@
 var resposta : Int = 0
 fun main(args: Array<String>) {
     val cadastro = Cadastro()
+    val listaDeVeiculos = ListaDeVeiculos()
 
     do {
         println(
@@ -10,11 +11,17 @@ fun main(args: Array<String>) {
             "\n1 - Cadastro de veículo" +
             "\n2 - Ver lista de veículos" +
             "\n3 - Sair")
-            resposta = readLine()?.toInt() ?: 0
-
-        when (resposta) {
-            1 -> cadastro.cadastrar()
-            2 ->
+        when (readLine()?.toInt()) {
+            1 -> {
+                cadastro.cadastrar()
+                resposta = 0
+            }
+            2 -> if (listaDeVeiculos.verificarSeExistemVeiculosCadastrados()) {
+                listaDeVeiculos.exibirListaDeVeiculos()
+                listaDeVeiculos.opcoesDaListaDeVeiculos()
+            }
         }
     } while (resposta != 3)
+
+    println("Leilão encerrado. Volte sempre!")
 }

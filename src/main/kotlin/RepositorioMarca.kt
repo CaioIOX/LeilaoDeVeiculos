@@ -52,5 +52,10 @@ class RepositorioMarca: Marca() {
             }
         }
     }
+    fun imprimirMarcas() {
+        for (indice in marca.indices) {
+            println("# ${indice+1} - ${nomeDaMarca(indice)}")
+        }
+    }
     fun isEmpty():Boolean {return marca.isEmpty()}
 }

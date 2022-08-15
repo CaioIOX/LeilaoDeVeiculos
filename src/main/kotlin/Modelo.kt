@@ -4,7 +4,6 @@ open class Modelo {
     private lateinit var tipoDeCombustivel: String
     private lateinit var marca: Marca
     var modelo = arrayListOf<Modelo>()
-
     fun Modelo(name: String, motorizacao: String, tipoDeCombustivel: String, marca: Marca) {
         this.name = name
         this.motorizacao = motorizacao
