@@ -51,5 +51,5 @@ class RepositorioModelo : Modelo() {
             println("# ${indice+1} - ${nomeDoModelo(indice)}")
         }
     }
-    fun isEmpty(): Boolean {return modelo.isEmpty()}
+    fun isEmpty():Boolean {return modelo.isEmpty()}
 }

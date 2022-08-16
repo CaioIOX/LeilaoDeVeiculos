@@ -1,11 +1,9 @@
 import java.lang.Exception
 
+private lateinit var marcaEscolhida : Marca
+private lateinit var modeloEscolhido: Modelo
+
 class Cadastro {
-    lateinit var marcaEscolhida : Marca
-    lateinit var modeloEscolhido: Modelo
-    var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
-    var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
-    var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
     fun cadastrar() {
         println("Você deseja cadastrar:" +
                 "\n1 - Marca" +
@@ -23,10 +21,11 @@ class Cadastro {
                 cadastrarMarca()
             } else if (repositoriosDeModeloGlobal.isEmpty()) {
                 println("Primeiro cadastre um Modelo!")
+                cadastrarModelo()
             } else cadastrarVeiculo()
         }
     }
-    fun cadastrarMarca() {
+    private fun cadastrarMarca() {
         try {
             println("Digite o nome da Marca:")
             val nomeMarca = readLine() ?: "Marca genérica"
@@ -44,7 +43,7 @@ class Cadastro {
             println("Erro: dados inválidos!")
         }
     }
-    fun cadastrarModelo() {
+    private fun cadastrarModelo() {
         try {
             println("Digite o número correspondente da marca do veiculo:")
             repositoriosDeMarcaGlobal.imprimirMarcas()
@@ -57,27 +56,28 @@ class Cadastro {
             println("Digite o tipo de combustivel:")
             val tipoDeCombustivel = readLine() ?: "Gasolina"
 
-            repositoriosDeModeloGlobal.adicionar(Modelo().Modelo(nomeModelo,
+            repositoriosDeModeloGlobal.adicionar(Modelo(
+                nomeModelo,
                 motorizacao,
                 tipoDeCombustivel,
                 marcaEscolhida))
             println("Modelo cadastrado com sucesso!")
         } catch (e: Exception) {
-            println("Erro: dados inválidos!")
+           println("Erro: dados inválidos!")
         }
     }
-    fun cadastrarVeiculo() {
+    private fun cadastrarVeiculo() {
         try {
         println("Digite um número correspondente do modelo do veiculo:")
         repositoriosDeModeloGlobal.imprimirModelo()
         val modeloId = readLine()?.toInt() ?: 0
         modeloEscolhido = repositoriosDeModeloGlobal.getModelo(modeloId - 1)
         println("Digte um id pro veiculo:")
-        val id = readLine()
+        val id = readLine() ?: ""
         println("Digite a cor do veiculo")
         val cor = readLine() ?: "cor genérica"
         println("Digite o ano do veiculo:")
-        val ano = readLine()?.toInt()
+        val ano = readLine()?.toInt() ?: 0
         println("Digite a quilometragem do veiculo:")
         val quilometragem = readLine()?.toInt() ?: 0
         println("Digite o valor da dívida do veiculo:")
@@ -87,7 +87,7 @@ class Cadastro {
         println("Descreva o estado de conservação do veiculo:")
         val descricao = readLine() ?: ""
 
-        repositoriosDeVeiculoGlobal.anoDoVeiculo(Veiculo(
+        repositoriosDeVeiculoGlobal.adicionarVeiculo(Veiculo(
             cor,
             id,
             ano,

@@ -1,9 +1,8 @@
+private var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
+private var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
+private var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
 class RepositorioVeiculo: Veiculo() {
-    var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
-    var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
-    var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
-
-    lateinit var modeloEscolhido: Modelo
+    private lateinit var modeloEscolhido: Modelo
 
     fun adicionarVeiculo(v: Veiculo) {veiculo.add(v)}
 
@@ -119,5 +118,5 @@ class RepositorioVeiculo: Veiculo() {
                     "Lance Minimo: R$ ${lanceMinimoDoVeiculo(indice)} \n")
         }
     }
-    fun isEmpty(): Boolean {return veiculo.isEmpty()}
+    fun isEmpty():Boolean {return veiculo.isEmpty()}
 }

@@ -1,5 +1,8 @@
 
 var resposta : Int = 0
+private var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
+private var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
+private var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
 fun main(args: Array<String>) {
     val cadastro = Cadastro()
     val listaDeVeiculos = ListaDeVeiculos()

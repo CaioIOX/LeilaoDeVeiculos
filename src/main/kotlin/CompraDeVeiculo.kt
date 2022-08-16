@@ -1,5 +1,5 @@
+private var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
 class CompraDeVeiculo : AbstractPagamentos() {
-    private var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
     override fun pagamentoAvista(lance: Double) {
         val lanceDeCompra: Double = lance - (lance * 0.1)
         println("O valor do veiculo será: $lanceDeCompra")
@@ -18,7 +18,7 @@ class CompraDeVeiculo : AbstractPagamentos() {
         println("Para realizar a compra deve-se dar uma entrada de R$ $entrada " +
                 "e as parcelas ficarão em R$ $parcela sem juros!")
     }
-    fun confirmacaoDeCompra(id: String) {
+    private fun confirmacaoDeCompra(id: String) {
         println("Deseja finalizar a compra? 1 - SIM/2 - NÃO")
         val compra = readLine()?.toInt() ?: 0
         if (compra == 1) {

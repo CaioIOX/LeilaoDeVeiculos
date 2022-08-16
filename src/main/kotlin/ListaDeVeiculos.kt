@@ -1,8 +1,8 @@
+private var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
+private var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
+private var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
+private var comprarVeiculos: CompraDeVeiculo = CompraDeVeiculo()
 class ListaDeVeiculos {
-    var repositoriosDeMarcaGlobal: RepositorioMarca = RepositorioMarca()
-    var repositoriosDeModeloGlobal: RepositorioModelo = RepositorioModelo()
-    var repositoriosDeVeiculoGlobal: RepositorioVeiculo = RepositorioVeiculo()
-    var comprarVeiculos: CompraDeVeiculo = CompraDeVeiculo()
 
     fun verificarSeExistemVeiculosCadastrados(): Boolean {
         return if (repositoriosDeVeiculoGlobal.isEmpty()) {
@@ -49,7 +49,6 @@ class ListaDeVeiculos {
                 repositoriosDeVeiculoGlobal.procurarVeiculo(buscarVeiculo)
             }
             6 -> comprarVeiculos.comprarVeiculo()
-            else -> {}
         }
     }
 }
